@@ -1,5 +1,5 @@
 ---
-title: "DSCI445 - Homework 6"
+title: "DSCI445 - Term Project"
 author: "Chien Lin, Jason Nero, Sarah Sublett"
 date: "Due 12/15/2022 by 6:10pm"
 output: pdf_document
