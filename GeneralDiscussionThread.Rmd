@@ -1,0 +1,15 @@
+---
+title: "DSCI445 - Term Presentation"
+authors: "Chien Lin, Jason Nero, Sarah Sublett"
+date: "Due 12/05/2022 by 6:10pm"
+output: pdf_document
+---
+
+```
+
+
+```
+
+
+
+
