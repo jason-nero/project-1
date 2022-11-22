@@ -12,9 +12,5 @@ Complete coding (Chen), presentation and paper shells (Sarah) by 28 November and
 Input findings into shell of presentation and rehearse.
 
 -----
-Chien: I see that there are 2 .Rproj's: "project-1.Rproj" and "Project.Rproj", am I the only one seeing this?
-Which one are we using?
-
-Update: Wait I don't think it matters never mind.
-Update: I deleted the "Project.Rproj".
+Chien: Cleaned stuff
 -----
