@@ -16,4 +16,5 @@ Chien: I see that there are 2 .Rproj's: "project-1.Rproj" and "Project.Rproj", a
 Which one are we using?
 
 Update: Wait I don't think it matters never mind.
+Update: I deleted the "Project.Rproj".
 -----
