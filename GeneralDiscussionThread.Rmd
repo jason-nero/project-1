@@ -10,11 +10,10 @@ Goals:
 Clean up and increase dataset (Jason). 
 Complete coding (Chen), presentation and paper shells (Sarah) by 28 November and meet as group to discuss findings.
 Input findings into shell of presentation and rehearse.
-```
 
-
-```
-
-
+-----
+Chien: I see that there are 2 .Rproj's: "project-1.Rproj" and "Project.Rproj", am I the only one seeing this?
+Which one are we using?
+-----
 
 
