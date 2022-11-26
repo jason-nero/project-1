@@ -3,4 +3,4 @@ Group 1 project for DSCI445 @ CSU
 
 Chien Lin, Jason Nero, Sarah Sublett
 
-Predicting the occurrence of fights in NHL hockey games. 
+Determining what attributes are staticially signficent to the outcome of fights occurring between players during a NHL hockey games. 
