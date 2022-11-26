@@ -1,0 +1,116 @@
+---
+title: "DSCI445 - Term Presentation"
+authors: "Jason Nero"
+date: "Due 12/05/2022 by 6:10pm"
+output: pdf_document
+---
+
+```{r, message=FALSE, warning=FALSE}
+set.seed(445)  #temp will remove with final work 
+#libraries
+library(dplyr)
+library(tidymodels)
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+#setup work
+data <- read.csv("HockeyData.csv")
+df <- data.frame(data)
+data.c <- df %>% filter(Year > 2016)
+```
+
+```{r}
+#initial exploration 
+# check for NA values.  
+sum(is.na(data.c))
+
+# Correlation map 
+wo.team <- data.c [,-which(names(data.c) == "Team")]
+ggpairs(wo)
+
+
+#plot predictors against response 
+#plot(data.c$Year, data.c$TotalFights, xlab = "Year", ylab = "Total Fights")
+
+plot(data.c$Attendence, data.c$TotalFights)
+#plot(data.c$Win, data.c$TotalFights)
+#plot(data.c$Lose, data.c$TotalFights)
+#plot(data.c$Lose, data.c$TotalFights)
+#plot(data.c$Rank, data.c$TotalFights)
+#plot(data.c$Points, data.c$TotalFights)
+#plot(data.c$Goalsfor, data.c$TotalFights)
+#plot(data.c$Goalsagainst, data.c$TotalFights)
+#ggplot this section with year as color (minus first one).  
+
+```
+
+ 
+Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions fights still occured and in somewhat in line with other years. \ 
+Attendence/TotalFights: No apparent linear relationship. \ 
+Win/TotalFights: \ 
+Lose/TotalFights: \ 
+Rank/TotalFights: \ 
+Goalsfor/TotalFights: \ 
+Goalsagainst/TotalFights: \
+
+
+```{r}
+#split data set randomly 60/40 
+cut <- floor(nrow(data.c) * 0.6) 
+split <- sample(dim(data.c)[1],cut)
+train.h <- data.c[split,]
+test.h <- data.c[-split,] 
+```
+
+
+```{r}
+#determine significant variables
+#include cv
+sub_sel <- regsubsets(Y~poly(X,10), data = eq_frame, nvmax = 10)
+
+#Mallow's CP - lowest
+cp <- summary(sub_sel)$cp
+cp
+#Bayesian information criterion - lowest
+bic <- summary(sub_sel)$bic
+bic
+#Adjusted R^2 - Highest
+adjr2 <- summary(sub_sel)$adjr2
+adjr2
+#plots
+par(mfrow = c(2,2))
+plot(cp, type = "l", col = "red")
+plot(bic, type = "l", col = "blue")
+plot(adjr2, type = "l", col = "green")
+
+
+
+data.train <- data.frame(y = train.y, x = train.x)
+reg.train <- regsubsets(y ~ ., data = data.train, nvmax = 20)
+
+d.test <- data.frame(y = test.y, x = test.x)
+test.matrix <- model.matrix(y ~ ., data = d.test, nvmax = 20)
+
+t.errors <- rep(NA, 20)
+
+for (i in 1:20) {
+    coefi <- coef(reg.train, id = i)
+    pred <- test.matrix[, names(coefi)] %*% coefi
+    t.errors[i] <- mean((pred - test.y)^2)
+}
+
+plot(t.errors, type = "b")
+```    
+
+
+
+```
+
+```{r}
+#determine significant model
+#include cv
+
+
+```
