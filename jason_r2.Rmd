@@ -6,54 +6,78 @@ output: pdf_document
 ---
 
 ```{r, message=FALSE, warning=FALSE}
-set.seed(445)  #temp will remove with final work 
 #libraries
 library(dplyr)
 library(tidymodels)
 library(tidyverse)
 library(ggplot2)
+library(GGally)
+library(caret)
+library(leaps)
+library(dplyr)
 ```
 
 ```{r}
-#setup work
+#setup
 data <- read.csv("HockeyData.csv")
 df <- data.frame(data)
 data.c <- df %>% filter(Year > 2016)
 ```
 
+
 ```{r}
-#initial exploration 
+
+
+
+```
+
+
+```{r}
 # check for NA values.  
 sum(is.na(data.c))
+```
 
-# Correlation map 
+```{r}
+# Initial exploration
+## Correlation map 
 wo.team <- data.c [,-which(names(data.c) == "Team")]
-ggpairs(wo)
+ggpairs(wo.team)
+```
 
+```{r}
+#fit basic model 
+lm.fit <- lm(TotalFights ~ ., data.c)
+summary(lm.fit)
+```
 
-#plot predictors against response 
-#plot(data.c$Year, data.c$TotalFights, xlab = "Year", ylab = "Total Fights")
+It could appear that none of variables are statically significant with the exception of the fights subcatgoires, which makes sense Totalfights is based off them, and surprisingly Montreal Canadians. 
+
+```{r}
+
+plot(data.c$Year, data.c$TotalFights, xlab = "Year", ylab = "Total Fights")
 
 plot(data.c$Attendence, data.c$TotalFights)
-#plot(data.c$Win, data.c$TotalFights)
-#plot(data.c$Lose, data.c$TotalFights)
-#plot(data.c$Lose, data.c$TotalFights)
-#plot(data.c$Rank, data.c$TotalFights)
-#plot(data.c$Points, data.c$TotalFights)
-#plot(data.c$Goalsfor, data.c$TotalFights)
-#plot(data.c$Goalsagainst, data.c$TotalFights)
+plot(data.c$Win, data.c$TotalFights)
+plot(data.c$Lose, data.c$TotalFights)
+plot(data.c$Lose, data.c$TotalFights)
+plot(data.c$Rank, data.c$TotalFights)
+plot(data.c$Points, data.c$TotalFights)
+plot(data.c$Goalsfor, data.c$TotalFights)
+plot(data.c$Goalsagainst, data.c$TotalFights)
+plot(data.c$TotalFights, data.c$Teams)
 #ggplot this section with year as color (minus first one).  
 
 ```
 
- 
-Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions fights still occured and in somewhat in line with other years. \ 
-Attendence/TotalFights: No apparent linear relationship. \ 
-Win/TotalFights: \ 
-Lose/TotalFights: \ 
-Rank/TotalFights: \ 
-Goalsfor/TotalFights: \ 
-Goalsagainst/TotalFights: \
+Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions fights still occured and in somewhat in line with other years.
+
+```{r}
+#filter by team and sum to get total fights overall 
+teams.totals <- data.c %>% group_by(Team) %>% summarise(Freq = sum(TotalFights))
+teams.totals
+ggplot(teams.totals, aes(x=Team, y=Freq)) + geom_col() + scale_x_discrete(guide = guide_axis(angle = 90)) + labs(y = "Totalfights (2017-2021)")
+```
+
 
 
 ```{r}
@@ -67,8 +91,7 @@ test.h <- data.c[-split,]
 
 ```{r}
 #determine significant variables
-#include cv
-sub_sel <- regsubsets(Y~poly(X,10), data = eq_frame, nvmax = 10)
+sub_sel <- regsubsets(TotalFights~., data = data.c, nvmax = 15)
 
 #Mallow's CP - lowest
 cp <- summary(sub_sel)$cp
@@ -84,9 +107,9 @@ par(mfrow = c(2,2))
 plot(cp, type = "l", col = "red")
 plot(bic, type = "l", col = "blue")
 plot(adjr2, type = "l", col = "green")
+```
 
-
-
+```{r}
 data.train <- data.frame(y = train.y, x = train.x)
 reg.train <- regsubsets(y ~ ., data = data.train, nvmax = 20)
 
