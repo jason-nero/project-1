@@ -15,4 +15,4 @@ Input findings into shell of presentation and rehearse.
 -----
 Chien: Cleaned stuff
 -----
-11/27 - Continued exploration. Code updated. Cleaned up dataset due to a few errors in the past few days. 
+Jason: 11/27 - Continued exploration with little significance. Code updated. Cleaned up dataset due to a few errors in the past few days. 
