@@ -4,35 +4,160 @@ output: html_document
 date: '2022-11-16'
 ---
 
+## packages and stuff
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 set.seed(666)
 library(tidymodels)
+#library(AICcmodavg)
+library(caret)
 ```
 
-## R Markdown
+## Load in Full Data
 
 ```{r}
-# data modify
+# data cleanup
+HockeyData <- read.csv("HockeyData.csv")
 data <- HockeyData[HockeyData$Year>2016, ]
-
 ```
 
 ```{r}
-#simple plots
+# simple plots
 plot(TotalFights~Year, data=data)
 ratio <- data$Win/data$Lose
 plot(TotalFights~ratio, data=data)
 ```
 
 
+## Use Full Data (data)
+
+
 ```{r}
-#split data
-size <-  floor(0.8*nrow(data))
-#randomly split data
-picked <- sample(seq_len(nrow(data)),size = size)
-test <-  data[picked,]
-train <-  data[-picked,]
+# anova
+one.way <- aov(TotalFights~as.factor(Year), data=data)
+summary(one.way)
+
+two.way <- aov(TotalFights~as.factor(Year), data=data)
+summary(one.way)
+
+interaction <- aov(TotalFights~as.factor(Year), data=data)
+summary(one.way)
+
+model.set <- list(one.way, two.way, interaction)
+model.names <- c("one.way", "two.way", "interaction")
+
+aictab(model.set, modnames = model.names)
+```
+
+## Use Not full Data (data2)
+
+```{r}
+# data modify
+data %>% mutate(fYear=as.factor(Year)) %>% 
+  select(TotalFights:fYear) -> data2
+# split data
+size <-  floor(0.8*nrow(data2))
+# randomly split data
+picked <- sample(seq_len(nrow(data2)),size = size)
+test <-  data2[picked,]
+train <-  data2[-picked,]
+```
+
+
+```{r}
+# model
+lm.model <- lm(TotalFights ~., data = train)
+# predictions
+pred <- lm.model %>% predict(test)
+# compute R2, RMSE and MAE
+data.frame( R2 = R2(pred, test$TotalFights),
+            RMSE = RMSE(pred, test$TotalFights),
+            MAE = MAE(pred, test$TotalFights))
+```
+
+```{r}
+# define
+train.control <- trainControl(method = "LOOCV")
+# train model
+lo.model <- train(TotalFights ~., data = data2, method = "lm",
+               trControl = train.control)
+# results
+print(lo.model)
+```
+
+```{r}
+# define
+train.control <- trainControl(method = "cv", number = 10)
+# train model
+k.model <- train(TotalFights ~., data = data2, method = "lm",
+               trControl = train.control)
+# results
+print(k.model)
+```
+
+```{r}
+# define
+train.control <- trainControl(method = "repeatedcv", 
+                              number = 10, repeats = 3)
+# train model
+rk.model <- train(TotalFights ~., data = data2, method = "lm",
+               trControl = train.control)
+# results
+print(rk.model)
+```
+
+```{r}
+library(leaps)
+sub.model <- regsubsets(TotalFights ~ ., data = data2, nvmax = 10)
+summary(sub.model)
+
+##Cp, BIC, Adj_R2
+model.sum <- summary(model_subset)
+data.frame(
+  Adj.R2 = which.max(model.sum$adjr2),
+  CP = which.min(model.sum$cp),
+  BIC = which.min(model.sum$bic)
+)
+```
+```{r}
+library(glmnet)
+model_forward <- regsubsets(TotalFights ~ ., data = data2, nvmax = 10, method = "forward")
+model.foward.sum <- summary(model_forward)
+data.frame(
+  Adj.R2 = which.max(model.foward.sum$adjr2),
+  CP = which.min(model.foward.sum$cp),
+  BIC = which.min(model.foward.sum$bic)
+)
+```
+
+
+```{r}
+#
+model_backward <- regsubsets(TotalFights ~ ., data = data2, nvmax = 10, method = "backward")
+model.backward.sum <- summary(model_backward)
+data.frame(
+  Adj.R2 = which.max(model.backward.sum$adjr2),
+  CP = which.min(model.backward.sum$cp),
+  BIC = which.min(model.backward.sum$bic)
+)
+
+```
+
+
+```{r}
+
+#matrix of predictor variables
+pred_vars <- data.matrix(data2[,2:11])
+#k-fold cv to find optimal lambda value
+cv_model <- cv.glmnet(pred_vars, TotalFights, alpha = 1)
+#optimal lambda value
+best_lambda <- cv_model$lambda.min
+#plot of test MSE (CV error) by lambda value
+plot(cv_model)
+# find coefficients
+best_model <- glmnet(pred_vars, y, alpha = 1, lambda = best_lambda)
+coef(best_model)
 
 ```
 
