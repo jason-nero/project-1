@@ -18,3 +18,5 @@ Chien: Cleaned stuff
 Jason: 11/27 - Continued exploration with little significance. Code updated with some mundane plotting, 
 running linear model, and regsets to determine variable importance and best number. Cleaned up dataset 
 due to a few errors in the past few days. 
+
+Sarah: Thank you to whomever started the presentation.rmd. I have created the shell and am working to build the powerpoint presentation.
