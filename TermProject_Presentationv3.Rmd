@@ -108,6 +108,8 @@ Explore additional variables and develop or acquire a more robust dataset to per
 More time to further evaluate the data.
 
 ## References
+Hockey fight statistics. Hockey Fights. (n.d.). Retrieved December 2, 2022, from https://www.hockeyfights.com/stats 
 
-hockeyfights.com
-NHL.com
+Hockey statistics and history for the NHL and more! hockey DB. (n.d.). From https://www.hockeydb.com/ 
+
+NHL stats, history, scores, standings, playoffs, Schedule &amp; Records. Hockey. (n.d.). From https://www.hockey-reference.com/ 
