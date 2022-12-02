@@ -14,14 +14,20 @@ Or an Exploration into the Incidence of Fights in Professional Hockey Games.
 
 <br>
 
-  * Chien Lin
-  * Jason Nero
-  * Sarah Sublett
+  Chien Lin
+<br>
+
+  Jason Nero
+<br>
+
+  Sarah Sublett
 
 <br>
 
-* DSCI 445
-* 5 December 2022
+DSCI 445
+<br>
+
+5 December 2022
 
 ## Motivation
 
