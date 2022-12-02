@@ -1,6 +1,6 @@
 ---
 title: "TermProject_Presentationv2"
-author: "Sarah Sublett"
+author: "Chien Lin Jason Nero Sarah Sublett"
 date: '2022-12-02'
 output: powerpoint_presentation
 ---
@@ -12,66 +12,86 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Ever Go to a Boxing Match and a Hockey Game Breaks Out? 
 Or an Exploration into the Incidence of Fights in Professional Hockey Games.
 
-  Chien Lin
+<br>
 
-  Jason Nero
+  * Chien Lin
+  * Jason Nero
+  * Sarah Sublett
 
-  Sarah Sublett
+<br>
 
-DSCI 445
-5 December 2022
+* DSCI 445
+* 5 December 2022
 
 ## Motivation
 
-- General interest in the impact of fines imposed by the NHL to curb fighting during professional hockey games. 
-- Fighting at the professional level encourages similar behavior in junior leagues, and fighting can lead to serious injuries.
+* General interest in the impact of fines imposed by the NHL to curb fighting during professional hockey games. 
+* Fighting at the professional level encourages similar behavior in junior leagues, and fighting can lead to serious injuries.
 
 ## Data
 
-- Utilizing fight data from hockeyfights.com and 
-- Refined fight data to years 2017-2021 due to incomplete data 
--  Initial data set included over 2000 entries and was refined to 156 entries 
-	- each entry represents the number of fights each team had per year evaluated
-- 32 teams in the NHL
-- 1,312 games per regular season, with each team playing 82 games
+* Utilizing fight data from hockeyfights.com and NHL.com
+* Refined fight data to years 2017-2021 due to incomplete data 
+* Initial data set included over 2000 entries and was refined to 156 entries 
+* Each entry represents the number of fights each team had per year evaluated
+* 32 teams in the NHL
+* 1,312 games per regular season, with each team playing 82 games
+
+## Variables Evaluated
+
+* Total fights
+* Years
+* Teams
+* Goals (for, against, total)
+* Season (pre, regular, and post)
+* Attendance
+* Win, Loss, and Win/loss percentage
+* Overall NHL ranking per season
+* Points (combination of goals and assists)
+
+## Correlation map
+
+
+
+* excluded teams for readability of slide
 
 ## Application of DSCI 445 Concepts
 
 Utilized:
-- ggplot
-- lm
-- splitting dataset to train and test
-- Ridge regressions
-- adjusted R-squared
-- BIC
+<br>
 
-## Variables Evaluated
-
+* ggplot
+* lm
+* splitting dataset to train and test
+* Ridge regressions
+* adjusted R-squared
+* BIC
 
 ## Challenges with Data
 
-- Readily available or consolidated data, had to combine multiple sources to form dataset
-- Several teams were created during the time frame, creating incomplete information
-- Utilized omit.na code to compensate
-- pre-fight, post-fight, and in-season fighting
-- availability of more information on the specifics of the fight (time in the game, type, number of people in the fight, instigator versus respondent of the fight, etc).
+* Readily available or consolidated data, had to combine multiple sources to form dataset
+* Several teams were created during the time frame, creating incomplete information
+* Utilized omit.na code to compensate
+* pre-fight, post-fight, and in-season fighting
+* availability of more information on the specifics of the fight (time in the game, type, number of people in the fight, instigator versus respondent of the fight, etc).
 
 ## Findings
 
--It could appear that none of the variables are statically significant, with the exception of the fights subcategories, which makes sense Totalfights is based on them. 
+* It could appear that none of the variables are statically significant, with the exception of the fights subcategories, which makes sense Totalfights is based on them. 
 
-- Surprisingly, Montreal Canadians, during the initial look, appeared to be statistically significant, yet in more robust analysis, it was not. 
+* Surprisingly, Montreal Canadians, during the initial look, appeared to be statistically significant, yet in more robust analysis, it was not. 
 
--Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions; fights still occurred and in somewhat in line with other years.
+* Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions; fights still occurred and in somewhat in line with other years.
 
 ## Plots of Interest
 
+fighter per year (look at COVID impact)
 ```{r cars, echo = TRUE}
 summary(cars)
 ```
 
 ## Slide with Plot
-
+correlation map (in Jasons rmd - huge grid)
 ```{r pressure}
 plot(pressure)
 ```
