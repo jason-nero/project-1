@@ -1,5 +1,5 @@
 ---
-title: "TermProject_Presentationv2"
+title: "TermProject_Presentation"
 author: "Chien Lin Jason Nero Sarah Sublett"
 date: '2022-12-02'
 output: powerpoint_presentation
@@ -57,9 +57,12 @@ DSCI 445
 
 ## Correlation map
 
+![Correlation Map of all Variables](cormap.png)
 
 
-* excluded teams for readability of slide
+## Zoom in of Correlation Map 
+
+![Zoom in of Correlation Map](cormap_reduced.png)
 
 ## Application of DSCI 445 Concepts
 
@@ -91,21 +94,13 @@ Utilized:
 
 ## Plots of Interest
 
-fighter per year (look at COVID impact)
-```{r cars, echo = TRUE}
-summary(cars)
-```
+![Fights per Year](tfyear_plot.png)
 
-## Slide with Plot
-correlation map (in Jasons rmd - huge grid)
-```{r pressure}
-plot(pressure)
-```
 ## Future Work
 
-Explore additional variables and develop or acquire a more robust dataset to perhaps look at different violations and the impact of the fines on fighting. 
+* Explore additional variables and develop or acquire a more robust dataset to perhaps look at different violations and the impact of the fines on fighting. 
 
-More time to further evaluate the data.
+* More time to further evaluate the data.
 
 ## References
 Hockey fight statistics. Hockey Fights. (n.d.). Retrieved December 2, 2022, from https://www.hockeyfights.com/stats 
