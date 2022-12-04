@@ -1,6 +1,6 @@
 ---
 title: "TermProject_Presentation"
-author: "Chien Lin Jason Nero Sarah Sublett"
+author: "Chien Lin Jason Nero Sarah Sublett - Group 1"
 date: '2022-12-02'
 output: powerpoint_presentation
 ---
