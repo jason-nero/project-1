@@ -75,6 +75,7 @@ Utilized:
 * Ridge regressions
 * adjusted R-squared
 * BIC
+* Cross Validation!
 
 ## Challenges with Data
 
