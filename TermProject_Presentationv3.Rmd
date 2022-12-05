@@ -36,8 +36,8 @@ DSCI 445 - Group 1
 
 ## Data
 
-* Utilizing fight data from hockeyfights.com and NHL.com
-* Refined fight data to years 2017-2021 due to incomplete data 
+* Utilizing fight data from hockeyfights.com and general hockey statistics from hockeydb.com and hockey-reference.com.
+* Refined fight data to years 2017-2021 due to incomplete data. 
 * Initial data set included over 2000 entries and was refined to 156 entries 
 * Each entry represents the number of fights each team had per year evaluated
 * 32 teams in the NHL
