@@ -36,12 +36,12 @@ DSCI 445 - Group 1
 
 ## Data
 
-* Utilizing fight data from hockeyfights.com and general hockey statistics from hockeydb.com and hockey-reference.com.
-* Refined fight data to years 2017-2021 due to incomplete data. 
+* Utilizing fight data from hockeyfights.com and general hockey statistics from hockeydb.com and hockey-reference.com
+* Refined fight data to years 2017-2021 due to incomplete data
 * Initial data set included over 2000 entries and was refined to 156 entries 
 * Each entry represents the number of fights each team had per year evaluated
 * 32 teams in the NHL
-* 1,312 games per regular season, with each team playing 82 games
+* 1,312 games per regular season, with each team playing 82
 
 ## Variables Evaluated
 
@@ -62,7 +62,7 @@ DSCI 445 - Group 1
 
 ## Zoom in of Correlation Map 
 
-![Zoom in of Correlation Map](cormap_reduced.png)
+![Total fights correlation](cormap_reduced.png)
 
 ## Application of DSCI 445 Concepts
 
