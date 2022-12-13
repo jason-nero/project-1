@@ -102,6 +102,10 @@ Pro and Con: Fighting in Hockey. (March 9, 2021). Retrieved December 12, 2022, f
 Saul, Derek. "NHL Fights Linked To Further Violence, Study Finds." Forbes.com (June 22, 2022) Retrieved December 12, 2022, from https://www.forbes.com/sites/dereksaul/2022/06/22/nhl-fights-linked-to-further-violence-study-finds/?sh=2151b9a858b6
 
 
+
+
+
+
 ## Including Plots
 
 You can also embed plots, for example:
