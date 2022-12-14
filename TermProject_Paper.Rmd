@@ -1,13 +1,22 @@
 ---
 title: "TermProject_Paper"
-author: "Chien Lin Jason Nero Sarah Sublett"
+author: "Chien Lin, Jason Nero, Sarah Sublett"
 date: "`r Sys.Date()`"
-output: pdf_document
+output: 
+  pdf_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: TRUE
+    df_print: paged
+    fig_caption: TRUE
+    highlight: tango
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Introduction
 
 ## Motivation
 
@@ -19,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
   
   The concern over fighting in NHL is closely tied to long-term health effects of the fight. "Concussions are more common in hockey than in most other sports. A preliminary Boston University study published...found people were at 23% greater risk of developing the degenerative neurological condition chronic traumatic encephalopathy (CTE) for every additional year they played hockey" (Saul, 2022).
 
-## Data
+# Data
 
   Compiling useful data required pulling data from several sites, including fight data from hockeyfights.com, and general hockey statistics from hockeydb.com and hockey-reference.com. The data was further refined to include only 2017-2021, due to the available data for other years being incomplete. The initial data set included over 2000 entries and was further refined to 156 entries. Each entry represents the number of fights each team had per year evaluated. The NHL has 1,312 games per regular season, played by 32 teams, with each team playing 82 games.
 
@@ -47,7 +56,7 @@ The vast amount of variables evaluated was narrowed down to the following for fu
 
 ![Total fights correlation](cormap_reduced.png)
 
-## Application of DSCI 445 Concepts
+# Application of DSCI 445 Concepts
 
 Utilized:
 <br>
@@ -60,7 +69,7 @@ Utilized:
 * BIC
 * Cross Validation!
 
-## Challenges with Data
+# Challenges with Data
 
 * Readily available or consolidated data, had to combine multiple sources to form dataset
 * Several teams were created during the time frame, creating incomplete information
@@ -68,7 +77,7 @@ Utilized:
 * pre-fight, post-fight, and in-season fighting
 * availability of more information on the specifics of the fight (time in the game, type, number of people in the fight, instigator versus respondent of the fight, etc).
 
-## Findings
+# Findings
 
 * It could appear that none of the variables are statically significant, with the exception of the fights subcategories, which makes sense Totalfights is based on them. 
 
@@ -76,11 +85,11 @@ Utilized:
 
 * Year/TotalFights: Interesting to see that in 2020 there was no physical attendance due to COVID restrictions; fights still occurred and in somewhat in line with other years.
 
-## Plots of Interest
+# Plots of Interest
 
 ![Fights per Year](tfyear_plot.png)
 
-## Future Work
+# Future Work
 
 * Explore additional variables and develop or acquire a more robust dataset to perhaps look at different violations and the impact of the fines on fighting. 
 
@@ -89,7 +98,7 @@ Utilized:
 
 
 
-## References
+# References
 
 Hockey fight statistics. Hockey Fights. (n.d.). Retrieved December 2, 2022, from https://www.hockeyfights.com/stats 
 
@@ -100,19 +109,3 @@ NHL stats, history, scores, standings, playoffs, Schedule &amp; Records. Hockey.
 Pro and Con: Fighting in Hockey. (March 9, 2021). Retrieved December 12, 2022, from https://www.britannica.com/story/pro-and-con-fighting-in-hockey#:~:text=Allowing%20fighting%20makes%20the%20sport,an%20unwritten%20code%20among%20players.
 
 Saul, Derek. "NHL Fights Linked To Further Violence, Study Finds." Forbes.com (June 22, 2022) Retrieved December 12, 2022, from https://www.forbes.com/sites/dereksaul/2022/06/22/nhl-fights-linked-to-further-violence-study-finds/?sh=2151b9a858b6
-
-
-
-
-
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
