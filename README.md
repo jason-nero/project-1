@@ -23,8 +23,7 @@ Exploring the relationship in the National Hockey League between fighting during
 ### Run *"TermProject_Paper.Rmd"* file
 
 # To see the Presentation:
-### Run *"TermProject_Presentation.Rmd"* file
-There are a lot I don't know which one
+### Run *"TermProject_Presentationv3"* file
 
 # References
 * Hockey fight statistics. Hockey Fights. (n.d.). Retrieved December 2, 2022, from https://www.hockeyfights.com/stats 
