@@ -11,7 +11,7 @@ output:
     fig_caption: TRUE
     highlight: tango
 header-includes: \usepackage{setspace}
-fontsize: 11pt
+fontsize: 12pt
 mainfont: Calibri
 sansfont: Calibri
 monofont: Calibri
@@ -55,7 +55,6 @@ Unfortunately, after simple statistical processing and analysis, the selected va
 Even though the variable selection was adverse to defining a model that can provide accurate predictions, the project did yield some interesting insights. During 2020, the country was in the throws of a global pandemic. Surprisingly, the NHL continued with games during this time but with zero attendance by fans. The choice to have zero attendance would likely impact fights. However, upon examining a plot of years against fights, one can easily see that attendance could have been a worthwhile contributor to fights, but alas, the fights that year trend with fights of years before and after it. 
 
 ![Year against Totalfights, colored by Team](yearggplot.png)
-
 
 ## Conclusion 
 
