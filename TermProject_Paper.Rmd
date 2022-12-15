@@ -10,7 +10,8 @@ output:
     df_print: paged
     fig_caption: TRUE
     highlight: tango
-header-includes: \usepackage{setspace}
+header-includes: \usepackage{setspace} 
+  \usepackage{indentfirst}
 fontsize: 12pt
 mainfont: Calibri
 sansfont: Calibri
