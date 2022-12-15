@@ -1,5 +1,6 @@
 ---
 title: "DraftFinalPaper"
+author: "Chien Lin, Jason Nero, Sarah Sublett"
 output: pdf_document
 date: "2022-12-14"
 ---
